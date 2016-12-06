@@ -18,8 +18,11 @@ var StatusPageIoOutput = module.exports = function(events, log, params) {
 
     // first get provider id, wich will be used to get custom metrics
     Spio.getMetricsProviders("Self", function(err, provider) {
-        // panic if we can't get provider id (with type == "self")
-        if (err) throw err;
+        // stop if we can't get provider id (with type == "self")
+        if (err) {
+            log.error("stopping output", err.message);
+            return;
+        }
 
         //
         log.info("got provider", {provider_id: provider.id});
@@ -42,21 +45,21 @@ var StatusPageIoOutput = module.exports = function(events, log, params) {
                 });
             });
         })();
-    });
 
-    // add item to payload on result
-    events.on('result', function(result, options) {
-        var metric = statuspage_io_metrics.find(function(metric) {
-            return metric.name === options.name;
+        // add item to payload on result
+        events.on('result', function(result, options) {
+            var metric = statuspage_io_metrics.find(function(metric) {
+                return metric.name === options.name;
+            });
+
+            if (!metric) {
+                log.warn("cannot find statuspage.io metric named", options.name);
+                return;
+            }
+
+            log.debug('adding metric', {id: metric.id, name: metric.name, value: result});
+            Spio.addMetric(metric.id, result);
         });
-
-        if (!metric) {
-            log.warn("cannot find statuspage.io metric named", options.name);
-            return;
-        }
-
-        log.debug('adding metric', {id: metric.id, name: metric.name, value: result});
-        Spio.addMetric(metric.id, result);
     });
 };
 
