@@ -1,0 +1,33 @@
+{
+  "name": "graphout-output-statuspage-io",
+  "version": "1.0.0",
+  "description": "A statuspage.io output module for graphout (github.com/shamil/graphout).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shamil/graphout-output-statuspage-io.git"
+  },
+  "keywords": [
+    "graphout",
+    "output",
+    "graphite",
+    "statuspage.io"
+  ],
+  "author": {
+    "name": "Alex Simenduev",
+    "email": "shamil.si@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shamil/graphout-output-statuspage-io/issues"
+  },
+  "homepage": "https://github.com/shamil/graphout-output-statuspage-io",
+  "dependencies": {
+    "needle": "^1.4.2",
+    "node-zabbix-sender": "^1.0.8"
+  },
+  "readmeFilename": "README.md"
+}
