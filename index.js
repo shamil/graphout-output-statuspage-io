@@ -32,12 +32,13 @@ var StatusPageIoOutput = module.exports = function(events, log, params) {
             Spio.getMetrics(provider.id, function(err, metrics) {
                 if (err) {
                     log.error(err.message);
-                    return;
+                    return setTimeout(sendLoop, params.send_interval);
                 }
 
                 log.debug("refreshed metrics metadata from statuspage.io", metrics);
                 statuspage_io_metrics = metrics;
 
+                // return, if metrics no metrics to send
                 if (Spio.countMetrics() === 0) {
                     return setTimeout(sendLoop, params.send_interval);
                 }
