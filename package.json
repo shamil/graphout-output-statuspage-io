@@ -1,6 +1,6 @@
 {
   "name": "graphout-output-statuspage-io",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A statuspage.io output module for graphout (github.com/shamil/graphout).",
   "main": "index.js",
   "scripts": {

@@ -30,7 +30,11 @@ var StatusPageIoOutput = module.exports = function(events, log, params) {
         // refresh metrics each interval
         (function sendLoop() {
             Spio.getMetrics(provider.id, function(err, metrics) {
-                if (err) log.error(err.message);
+                if (err) {
+                    log.error(err.message);
+                    return;
+                }
+
                 log.debug("refreshed metrics metadata from statuspage.io", metrics);
                 statuspage_io_metrics = metrics;
 
@@ -38,7 +42,7 @@ var StatusPageIoOutput = module.exports = function(events, log, params) {
                     return setTimeout(sendLoop, params.send_interval);
                 }
 
-                log.info('sending', Spio.countMetrics(), 'metrics');
+                log.info('sending', Spio.countMetrics(), 'metrics (' + Spio.countDataPoints(), 'data-points)');
                 Spio.sendMetrics(function(err) {
                     if (err) log.error(err.message);
                     setTimeout(sendLoop, params.send_interval);
