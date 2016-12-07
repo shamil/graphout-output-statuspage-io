@@ -53,6 +53,10 @@ SpioHelper.prototype.clearMetrics = function() {
 }
 
 SpioHelper.prototype.countMetrics = function() {
+    return Object.keys(this.metrics).length;
+}
+
+SpioHelper.prototype.countDataPoints = function() {
     var count = 0;
     for (var metric in this.metrics) {
         count += this.metrics[metric].length;
