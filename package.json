@@ -1,6 +1,6 @@
 {
   "name": "graphout-output-statuspage-io",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A statuspage.io output module for graphout (github.com/shamil/graphout).",
   "main": "index.js",
   "scripts": {
@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/shamil/graphout-output-statuspage-io",
   "dependencies": {
-    "debug": "~2.3.3",
-    "needle": "^1.4.2"
+    "debug": "4.x",
+    "needle": "1.x"
   },
   "readmeFilename": "README.md"
 }

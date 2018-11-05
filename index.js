@@ -38,7 +38,7 @@ var StatusPageIoOutput = module.exports = function(events, log, params) {
                 log.debug("refreshed metrics metadata from statuspage.io", metrics);
                 statuspage_io_metrics = metrics;
 
-                // return, if metrics no metrics to send
+                // return, if no metrics to send
                 if (Spio.countMetrics() === 0) {
                     return setTimeout(sendLoop, params.send_interval);
                 }
@@ -58,7 +58,7 @@ var StatusPageIoOutput = module.exports = function(events, log, params) {
             });
 
             if (!metric) {
-                log.warn("cannot find statuspage.io metric named", options.name);
+                log.warn("cannot find statuspage.io metric, name:", options.name);
                 return;
             }
 
