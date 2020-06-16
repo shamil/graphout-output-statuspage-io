@@ -1,10 +1,10 @@
-### About
+# About
 
 This library is a **Graphout** module. It's not intended to be used alone.
 
-The module adds support for outputing **Graphout** queries to statuspage.io, using [`custom metrics`](http://doers.statuspage.io/api/v1/metrics).
+The module adds support for outputing **Graphout** queries to statuspage.io, using [`custom metrics`](https://developer.statuspage.io/#tag/metrics).
 
-### Configuration params
+## Configuration params
 
 to use this module, make sure to configure it in **Graphout** config.
 here are the available params:
@@ -42,7 +42,7 @@ From statuspage.io API docs:
 
 Basically, you should set Graphout query `interval` at least to 30 seconds.
 
-**Important Note**
+**Important Note:**
 
 In order for this plugin to be able to send metrics to the right statuspage.io `custom metric` you will need to set `name` of each query to the `name` of the `metric` of the statuspage.io.
 
