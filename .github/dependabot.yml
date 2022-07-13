@@ -6,7 +6,3 @@ updates:
     interval: monthly
     time: "03:00"
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: needle
-    versions:
-    - 2.5.2
