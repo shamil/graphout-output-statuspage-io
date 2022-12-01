@@ -27,7 +27,7 @@
   "homepage": "https://github.com/shamil/graphout-output-statuspage-io",
   "dependencies": {
     "debug": "4.x",
-    "needle": "1.x"
+    "needle": "3.x"
   },
   "readmeFilename": "README.md"
 }
